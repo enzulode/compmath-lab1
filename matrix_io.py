@@ -58,7 +58,7 @@ def print_matrix(matrix: list) -> None:
   print("----------------------------")
   for i in matrix:
     for j in i:
-      print(f"{j:7}", end="")
+      print(f" {j:7.3f} ", end="")
     print()
   print("----------------------------")
   return
@@ -72,6 +72,6 @@ def print_arr(arr: list) -> None:
     return
   
   for i in arr:
-    print(f"{i:7}", end="")
+    print(f" {i:7.3f} ", end="")
   print()
   return
