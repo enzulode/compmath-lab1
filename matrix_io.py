@@ -36,7 +36,7 @@ def from_keyboard() -> tuple:
   print("Fill in the matrix:")
   for i in range(n): # read the matrix row by row
     print(f"Put {i+1}-th row: ", end = '')
-    row = [float(i) for i in input().split(' ', n - 1)]
+    row = [float(i) for i in input().replace(",", ".").split(' ', n - 1)]
     A.append(row)
 
   print("Enter free members column:\n", end = '')
