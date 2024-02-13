@@ -2,12 +2,17 @@ import numpy as np
 import os
 import errors as err
 
-def from_file(filename: str) -> tuple:
+def from_file() -> tuple:
   """
     This function performs SLAE parsing from the specific file.
   """
-  if not(os.path.isfile(filename)):
+  filename = str(input("Enter filename: ")).replace("/", os.sep).replace("\\", os.sep)
+
+  if not(os.access(filename, os.F_OK)):
     raise err.FileError("file not found")
+
+  if not(os.access(filename, os.R_OK)):
+    raise err.FileError("file is not readable - lack of permissions")
 
   try:
     A = np.loadtxt(filename, unpack=True, dtype=float) # load data as matrix
