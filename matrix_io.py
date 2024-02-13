@@ -62,3 +62,16 @@ def print_matrix(matrix: list) -> None:
     print()
   print("----------------------------")
   return
+
+def print_arr(arr: list) -> None:
+  """
+    This function performs formatted output of the provided array.
+  """
+  if (len(arr) == 0):
+    print("Empty array")
+    return
+  
+  for i in arr:
+    print(f"{i:7}", end="")
+  print()
+  return
