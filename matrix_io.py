@@ -2,6 +2,28 @@ import numpy as np
 import os
 import errors as err
 
+def from_nowhere() -> tuple:
+  try:
+    n = int(input("Matrix size: ")) # get the matrix size
+  except ValueError:
+    raise err.MatrixError("matrix size should be an integer")
+
+  if n <= 0: # check matrix size is correct
+    raise err.MatrixError("invalid matrix size")
+  
+  A = np.random.rand(n, n)
+  b = np.random.rand(n)
+
+  # print generated matrix
+  print()
+  print("Triangular matrix")
+  print_matrix(A)
+  print("Free numbers column")
+  print_arr(b)
+  print()
+  
+  return A, b
+
 def from_file() -> tuple:
   """
     This function performs SLAE parsing from the specific file.
