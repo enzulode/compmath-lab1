@@ -43,3 +43,22 @@ def from_keyboard():
   b = [float(i) for i in input().split(' ', n - 1)]
 
   return np.array(A, float), np.array(b, float)
+
+def print_matrix(matrix: list) -> None:
+  """
+    This function performs formatted output of the provided matrix.
+  """
+  if (matrix_size := len(matrix)) == 1:
+    print("----------------------------")
+    print(matrix[0][0])
+    print("----------------------------")
+    return
+
+
+  print("----------------------------")
+  for i in matrix:
+    for j in i:
+      print(f"{j:7}", end="")
+    print()
+  print("----------------------------")
+  return
