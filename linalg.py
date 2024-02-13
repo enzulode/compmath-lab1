@@ -9,17 +9,17 @@ def gauss(A: list, b: list) -> tuple:
 
   s = 0
   for k in range(n): # straight flow of the gauss method
-    max_row = k
-    if A[k, k] == 0: # searching for the max element in a column
+    nonzero_row = k
+    if A[k, k] == 0: # searching for the nonzero element in a column
       for i in range(k+1, n):
         if A[i, k] != 0:
-          max_row = i
+          nonzero_row = i
           break
       s += 1
 
     # rows rearrangement
-    A[[k, max_row], :] = A[[max_row, k], :]
-    b[k], b[max_row] = b[max_row], b[k]
+    A[[k, nonzero_row], :] = A[[nonzero_row, k], :]
+    b[k], b[nonzero_row] = b[nonzero_row], b[k]
     
     for i in range(k + 1, n): # convert the matrix to the upper triangular form
       c = A[i, k] / A[k, k]
