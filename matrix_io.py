@@ -2,7 +2,7 @@ import numpy as np
 import os
 import errors as err
 
-def from_file(filename: str):
+def from_file(filename: str) -> tuple:
   """
     This function performs SLAE parsing from the specific file.
   """
@@ -23,7 +23,7 @@ def from_file(filename: str):
   except Exception:
     raise err.MatrixError(f"invalid matrix format in the '{filename}' file") # notify user about difficulties
 
-def from_keyboard():
+def from_keyboard() -> tuple:
   """
     This function performs SLAE parsing from the CLI.
   """
