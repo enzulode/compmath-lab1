@@ -18,7 +18,7 @@ def from_nowhere() -> tuple:
   print()
   print("Generated matrix")
   print_matrix(A)
-  print("Geerated free numbers column")
+  print("Generated free numbers column")
   print_arr(b)
   print()
   
