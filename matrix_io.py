@@ -27,7 +27,10 @@ def from_keyboard() -> tuple:
   """
     This function performs SLAE parsing from the CLI.
   """
-  n = int(input("Matrix size: ")) # get the matrix size
+  try:
+    n = int(input("Matrix size: ")) # get the matrix size
+  except ValueError:
+    raise err.MatrixError("matrix size should be an integer")
 
   if n <= 0: # check matrix size is correct
     raise err.MatrixError("invalid matrix size")
@@ -35,9 +38,12 @@ def from_keyboard() -> tuple:
   A = []
   print("Fill in the matrix:")
   for i in range(n): # read the matrix row by row
-    print(f"Put {i+1}-th row: ", end = '')
-    row = [float(i) for i in input().replace(",", ".").split(' ', n - 1)]
-    A.append(row)
+    try:
+      print(f"Put {i+1}-th row: ", end = '')
+      row = [float(i) for i in input().replace(",", ".").split(' ', n - 1)]
+      A.append(row)
+    except ValueError:
+      raise err.MatrixError("matrix members should be numbers")
 
   print("Enter free members column:\n", end = '')
   b = [float(i) for i in input().split(' ', n - 1)]
