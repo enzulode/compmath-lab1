@@ -22,3 +22,24 @@ def from_file(filename: str):
     return A, b
   except Exception:
     raise err.MatrixError(f"invalid matrix format in the '{filename}' file") # notify user about difficulties
+
+def from_keyboard():
+  """
+    This function performs SLAE parsing from the CLI.
+  """
+  n = int(input("Matrix size: ")) # get the matrix size
+
+  if n <= 0: # check matrix size is correct
+    raise err.MatrixError("invalid matrix size")
+
+  A = []
+  print("Fill in the matrix:")
+  for i in range(n): # read the matrix row by row
+    print(f"Put {i+1}-th row: ", end = '')
+    row = [float(i) for i in input().split(' ', n - 1)]
+    A.append(row)
+
+  print("Enter free members column:\n", end = '')
+  b = [float(i) for i in input().split(' ', n - 1)]
+
+  return np.array(A, float), np.array(b, float)
