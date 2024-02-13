@@ -1,0 +1,6 @@
+# Ignore chached stuff
+__pycache__
+
+# Ignore development stuff
+dev.*
+dev_*.*
