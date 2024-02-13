@@ -30,7 +30,7 @@ def gauss(A: list, b: list) -> tuple:
   for k in range(n - 1, -1, -1): # reversed flow of the gauss method
     x[k] = (b[k] - np.dot(A[k, k + 1:], x[k + 1:])) / A[k, k]
 
-  r = b - np.dot(A, x) # residual vector calculation
+  r = np.dot(A, x) - b # residual vector calculation
 
   det = np.prod(np.diag(A)) * math.pow(-1, s) # matrix determinant calculation
 
