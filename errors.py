@@ -4,6 +4,10 @@ class FileError(Exception):
   """
   def __init__(self, message) -> None:
     super().__init__("File error occured: " + message)
+    self.message = "File error occured: " + message
+
+  def __str__(self) -> str:
+    return self.message
 
 class MatrixError(Exception):
   """
@@ -11,3 +15,7 @@ class MatrixError(Exception):
   """
   def __init__(self, message) -> None:
     super().__init__("Matrix error occured: " + message)
+    self.message = "Matrix error occured: " + message
+  
+  def __str__(self) -> str:
+    return self.message
